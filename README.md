@@ -9,11 +9,33 @@
 
 #### Nix-shell.
 
-<p align="justify"> I always do my work inside **nix-shell** whenever I can to keep my main system neat. I have configured this nix-shell flake to spin up different environements depending on command.</p>
+<p align="justify"> I work inside an isolated nix-shell whenever possible to keep my main system neat. I have configured this nix-shell flake to spin up different environments depending on command.</p>
 
 #### Usage.
 
+#### To add on new environements
+```nix
+# example (simple rust)
+rust = pkgs.mkShell {
+  packages = with pkgs; [
+    rustc
+    cargo
+    rust-analyzer
+    clippy
+    rustfmt 
+    ];
+};
+
+# example (nodejs)
+node = pkgs.mkShell {
+  packages = with pkgs; [ 
+    nodejs
+    pnpm
+    ];
+};
+```
+
 #### **To do.**
-- [ ] add Jupyter (Python).
-- [ ] add C/C++.
-- [ ] add Rust.
+- [x] add Jupyter (Python).
+- [x] add C/C++.
+- [ ] add data-science workflow env.
