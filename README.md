@@ -14,6 +14,9 @@
 #### Usage.
 
 #### To add on new environements
+
+Add on inside `devShells = forAllSystems (pkgs: { ... });`
+
 ```nix
 # example (simple rust)
 rust = pkgs.mkShell {
